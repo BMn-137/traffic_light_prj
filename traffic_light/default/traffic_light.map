@@ -1,0 +1,605 @@
+Archive member included because of file (symbol)
+
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o)
+                              traffic_light.o (__divmodhi4)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+                              d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o (exit)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+                              traffic_light.o (__do_copy_data)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                              traffic_light.o (__do_clear_bss)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+                              traffic_light.o (__divsf3)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+                              traffic_light.o (__fixsfsi)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_thenan_sf.o)
+                              d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o) (__thenan_sf)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+                              traffic_light.o (__floatunsisf)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodhi4.o)
+                              d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o) (__udivmodhi4)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_prologue.o)
+                              d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o) (__prologue_saves__)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_epilogue.o)
+                              d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o) (__epilogue_restores__)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+                              d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o) (__clzsi2)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+                              d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o) (__pack_f)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+                              d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o) (__unpack_f)
+d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clz.o)
+                              d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o) (__clz_tab)
+
+Allocating common symbols
+Common symbol       size              file
+
+dxred               0x2               traffic_light.o
+nbgreen             0x2               traffic_light.o
+x2                  0x2               traffic_light.o
+dxgreen             0x2               traffic_light.o
+nbred               0x2               traffic_light.o
+nbyellow            0x2               traffic_light.o
+x1                  0x2               traffic_light.o
+dxyellow            0x2               traffic_light.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800100         0x0000ff00         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800100
+LOAD d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+LOAD traffic_light.o
+LOAD d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a
+LOAD d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51\libc.a
+LOAD d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x141e
+ *(.vectors)
+ .vectors       0x00000000       0x8c d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+ *(.progmem*)
+                0x0000008c                . = ALIGN (0x2)
+                0x0000008c                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000008c        0x0 linker stubs
+ *(.trampolines*)
+                0x0000008c                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000008c                __ctors_start = .
+ *(.ctors)
+                0x0000008c                __ctors_end = .
+                0x0000008c                __dtors_start = .
+ *(.dtors)
+                0x0000008c                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000008c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+                0x0000008c                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000008c        0xc d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000098       0x1a d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+                0x00000098                __do_copy_data
+ .init4         0x000000b2       0x10 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+                0x000000b2                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x000000c2        0x8 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+ *(.init9)
+ *(.text)
+ .text          0x000000ca        0x4 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+                0x000000ca                __vector_22
+                0x000000ca                __vector_28
+                0x000000ca                __vector_1
+                0x000000ca                __vector_32
+                0x000000ca                __vector_34
+                0x000000ca                __vector_24
+                0x000000ca                __bad_interrupt
+                0x000000ca                __vector_6
+                0x000000ca                __vector_31
+                0x000000ca                __vector_3
+                0x000000ca                __vector_23
+                0x000000ca                __vector_30
+                0x000000ca                __vector_25
+                0x000000ca                __vector_11
+                0x000000ca                __vector_13
+                0x000000ca                __vector_17
+                0x000000ca                __vector_19
+                0x000000ca                __vector_7
+                0x000000ca                __vector_27
+                0x000000ca                __vector_5
+                0x000000ca                __vector_33
+                0x000000ca                __vector_4
+                0x000000ca                __vector_9
+                0x000000ca                __vector_2
+                0x000000ca                __vector_21
+                0x000000ca                __vector_15
+                0x000000ca                __vector_29
+                0x000000ca                __vector_8
+                0x000000ca                __vector_26
+                0x000000ca                __vector_14
+                0x000000ca                __vector_10
+                0x000000ca                __vector_16
+                0x000000ca                __vector_18
+                0x000000ca                __vector_20
+ .text          0x000000ce      0xc7e traffic_light.o
+                0x000000ce                EEPROM_write
+                0x000000de                disp_init
+                0x000000fa                display
+                0x0000012c                io_init
+                0x00000142                key_read
+                0x0000037e                __vector_12
+                0x00000a5e                get_ad
+                0x00000a76                EEPROM_read
+                0x00000a86                main
+ .text          0x00000d4c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o)
+ .text          0x00000d4c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .text          0x00000d4c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .text          0x00000d4c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+ .text          0x00000d4c      0x15c d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+                0x00000d4c                __divsf3
+ .text          0x00000ea8       0xa4 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+                0x00000ea8                __fixsfsi
+ .text          0x00000f4c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_thenan_sf.o)
+ .text          0x00000f4c       0xf0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+                0x00000f4c                __floatunsisf
+ .text          0x0000103c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodhi4.o)
+ .text          0x0000103c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_prologue.o)
+ .text          0x0000103c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_epilogue.o)
+ .text          0x0000103c       0xb4 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+                0x0000103c                __clzsi2
+ .text          0x000010f0      0x19c d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+                0x000010f0                __pack_f
+ .text          0x0000128c       0xd2 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+                0x0000128c                __unpack_f
+ .text          0x0000135e        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clz.o)
+                0x0000135e                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x0000135e       0x26 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o)
+                0x0000135e                _div
+                0x0000135e                __divmodhi4
+ .text.libgcc   0x00001384        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .text.libgcc   0x00001384        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00001384        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00001384       0x28 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodhi4.o)
+                0x00001384                __udivmodhi4
+ .text.libgcc   0x000013ac       0x38 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_prologue.o)
+                0x000013ac                __prologue_saves__
+ .text.libgcc   0x000013e4       0x36 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_epilogue.o)
+                0x000013e4                __epilogue_restores__
+                0x0000141a                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000141a        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+                0x0000141a                _exit
+                0x0000141a                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000141a        0x4 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ *(.fini0)
+                0x0000141e                _etext = .
+
+.data           0x00800100      0x12c load address 0x0000141e
+                0x00800100                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800100        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+ .data          0x00800100       0x24 traffic_light.o
+                0x00800100                disp
+                0x0080010a                a1
+                0x0080010c                b1
+                0x0080010e                c1
+                0x00800110                a2
+                0x00800112                b2
+                0x00800114                c2
+                0x00800116                dx
+                0x00800118                nb
+                0x0080011a                shanshuo
+                0x0080011c                k
+                0x0080011e                turn
+                0x00800120                T
+                0x00800122                sos
+ .data          0x00800124        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o)
+ .data          0x00800124        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .data          0x00800124        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .data          0x00800124        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+ .data          0x00800124        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+ .data          0x00800124        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+ .data          0x00800124        0x8 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_thenan_sf.o)
+                0x00800124                __thenan_sf
+ .data          0x0080012c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+ .data          0x0080012c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodhi4.o)
+ .data          0x0080012c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_prologue.o)
+ .data          0x0080012c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_epilogue.o)
+ .data          0x0080012c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+ .data          0x0080012c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+ .data          0x0080012c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+ .data          0x0080012c      0x100 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clz.o)
+                0x0080012c                __clz_tab
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080022c                . = ALIGN (0x2)
+                0x0080022c                _edata = .
+                0x0080022c                PROVIDE (__data_end, .)
+
+.bss            0x0080022c       0x24
+                0x0080022c                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080022c        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+ .bss           0x0080022c       0x14 traffic_light.o
+                0x0080022c                ledbuf
+                0x00800230                ms10
+                0x00800232                sec
+                0x00800234                x
+                0x00800236                save
+                0x00800238                STOP_music
+                0x0080023a                CLOCK
+                0x0080023c                led
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_divmodhi4.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_exit.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_copy_data.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clear_bss.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_thenan_sf.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_prologue.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_epilogue.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+ .bss           0x00800240        0x0 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clz.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x00800240       0x10 traffic_light.o
+                0x00800240                dxred
+                0x00800242                nbgreen
+                0x00800244                x2
+                0x00800246                dxgreen
+                0x00800248                nbred
+                0x0080024a                nbyellow
+                0x0080024c                x1
+                0x0080024e                dxyellow
+                0x00800250                PROVIDE (__bss_end, .)
+                0x0000141e                __data_load_start = LOADADDR (.data)
+                0x0000154a                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800250        0x0
+                0x00800250                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800250                PROVIDE (__noinit_end, .)
+                0x00800250                _end = .
+                0x00800250                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab           0x00000000      0x6cc
+ *(.stab)
+ .stab          0x00000000      0x6cc d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+
+.stabstr        0x00000000       0x85
+ *(.stabstr)
+ .stabstr       0x00000000       0x85 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/../../../../avr/lib/avr51/crtm128.o
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0xe0
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 traffic_light.o
+ .debug_aranges
+                0x00000020       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+ .debug_aranges
+                0x00000040       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+ .debug_aranges
+                0x00000060       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+ .debug_aranges
+                0x00000080       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+ .debug_aranges
+                0x000000a0       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+ .debug_aranges
+                0x000000c0       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+
+.debug_pubnames
+                0x00000000      0x299
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000      0x195 traffic_light.o
+ .debug_pubnames
+                0x00000195       0x1f d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+ .debug_pubnames
+                0x000001b4       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+ .debug_pubnames
+                0x000001d4       0x22 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_thenan_sf.o)
+ .debug_pubnames
+                0x000001f6       0x24 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+ .debug_pubnames
+                0x0000021a       0x1f d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+ .debug_pubnames
+                0x00000239       0x1f d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+ .debug_pubnames
+                0x00000258       0x21 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+ .debug_pubnames
+                0x00000279       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clz.o)
+
+.debug_info     0x00000000     0x17ac
+ *(.debug_info)
+ .debug_info    0x00000000      0x6f1 traffic_light.o
+ .debug_info    0x000006f1      0x37f d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+ .debug_info    0x00000a70      0x2a5 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+ .debug_info    0x00000d15      0x15e d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_thenan_sf.o)
+ .debug_info    0x00000e73      0x232 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+ .debug_info    0x000010a5      0x12c d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+ .debug_info    0x000011d1      0x2d9 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+ .debug_info    0x000014aa      0x25c d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+ .debug_info    0x00001706       0xa6 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clz.o)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0xbbb
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x25a traffic_light.o
+ .debug_abbrev  0x0000025a      0x1c4 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+ .debug_abbrev  0x0000041e      0x160 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+ .debug_abbrev  0x0000057e       0xcb d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_thenan_sf.o)
+ .debug_abbrev  0x00000649      0x173 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+ .debug_abbrev  0x000007bc       0xce d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x0000088a      0x185 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+ .debug_abbrev  0x00000a0f      0x14b d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+ .debug_abbrev  0x00000b5a       0x61 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clz.o)
+
+.debug_line     0x00000000     0x13f5
+ *(.debug_line)
+ .debug_line    0x00000000      0x9a2 traffic_light.o
+ .debug_line    0x000009a2      0x210 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+ .debug_line    0x00000bb2      0x13f d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+ .debug_line    0x00000cf1       0xb2 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_thenan_sf.o)
+ .debug_line    0x00000da3      0x15b d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+ .debug_line    0x00000efe       0xef d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+ .debug_line    0x00000fed      0x1f5 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+ .debug_line    0x000011e2      0x175 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+ .debug_line    0x00001357       0x9e d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clz.o)
+
+.debug_frame    0x00000000      0x160
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xa0 traffic_light.o
+ .debug_frame   0x000000a0       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+ .debug_frame   0x000000c0       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+ .debug_frame   0x000000e0       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+ .debug_frame   0x00000100       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+ .debug_frame   0x00000120       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+ .debug_frame   0x00000140       0x20 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+
+.debug_str      0x00000000      0x416
+ *(.debug_str)
+ .debug_str     0x00000000      0x1ae traffic_light.o
+                                0x1e7 (size before relaxing)
+ .debug_str     0x000001ae      0x1a4 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+                                0x206 (size before relaxing)
+ .debug_str     0x00000352        0xa d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+                                0x1d4 (size before relaxing)
+ .debug_str     0x00000000      0x176 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_thenan_sf.o)
+ .debug_str     0x0000035c       0x2a d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+                                0x1b6 (size before relaxing)
+ .debug_str     0x00000386       0x75 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+                                0x169 (size before relaxing)
+ .debug_str     0x000003fb       0x10 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+                                0x1d3 (size before relaxing)
+ .debug_str     0x0000040b        0xb d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+                                0x1b5 (size before relaxing)
+ .debug_str     0x00000000      0x14c d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clz.o)
+
+.debug_loc      0x00000000      0x6f3
+ *(.debug_loc)
+ .debug_loc     0x00000000       0xa3 traffic_light.o
+ .debug_loc     0x000000a3      0x1ac d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+ .debug_loc     0x0000024f       0x56 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+ .debug_loc     0x000002a5       0x96 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+ .debug_loc     0x0000033b       0xb2 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+ .debug_loc     0x000003ed      0x1f5 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+ .debug_loc     0x000005e2      0x111 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(traffic_light.elf elf32-avr)
+LOAD linker stubs
+
+.debug_pubtypes
+                0x00000000      0x37c
+ .debug_pubtypes
+                0x00000000       0x38 traffic_light.o
+ .debug_pubtypes
+                0x00000038       0x86 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
+ .debug_pubtypes
+                0x000000be       0x91 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_sf_to_si.o)
+ .debug_pubtypes
+                0x0000014f       0x5b d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_thenan_sf.o)
+ .debug_pubtypes
+                0x000001aa       0x73 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_usi_to_sf.o)
+ .debug_pubtypes
+                0x0000021d       0x35 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clzsi2.o)
+ .debug_pubtypes
+                0x00000252       0x86 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_pack_sf.o)
+ .debug_pubtypes
+                0x000002d8       0x86 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_unpack_sf.o)
+ .debug_pubtypes
+                0x0000035e       0x1e d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_clz.o)
+
+.debug_ranges   0x00000000       0x38
+ .debug_ranges  0x00000000       0x38 d:/avrwenjian/bin/../lib/gcc/avr/4.5.1/avr51\libgcc.a(_div_sf.o)
