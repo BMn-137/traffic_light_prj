@@ -4,7 +4,7 @@
 #include  <avr/interrupt.h>
 
 const unsigned char disp[] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
-unsigned char ledbuf[]={0x00,0x00,0x00,0x00};// ÏÔÊ¾»º³åÇø£¬·Ö±ğ´æ·ÅµÄÊÇÄÏ±±ºÍ¶«Î÷·½ÏòµÄÊ®Î»¡¢¸öÎ»¶ÎÂë
+unsigned char ledbuf[]={0x00,0x00,0x00,0x00};// show_buffer	adding North_Num and South_Num
 
 int ms10=0,sec=0,x1,x2;
 
@@ -24,26 +24,26 @@ int x=0,dx=-1,nb=-1,shanshuo=1,k=-1,turn=-1,save=0,STOP_music=0,T=-1,CLOCK=0,led
 
 
 
-/******¶¨Ê±Æ÷1µÄ³õÊ¼»¯£¬CTCÄ£Ê½£¬8·ÖÆµ£¬ÖĞ¶ÏÖÜÆÚ5ms******/
+/******init Time1ï¼ŒCTC_modelï¼Œ8 frequency_divisionï¼Œinterrupt_cycle 5ms******/
 void  disp_init(void)
 {
 	OCR1A = 4999;		//100Hz=8MHz/(2*8*(1+OCR1A))
 	TCCR1A = 0x00;
-	TCCR1B = (1 << WGM12);        //CTCÄ£Ê½
-	TCCR1B |= (1 << CS11);	//8·ÖÆµ
-	TIMSK |= (1 << OCIE1A);	//¿ª±È½ÏÆ¥ÅäÖĞ¶ÏA
+	TCCR1B = (1 << WGM12);        //CTC_model
+	TCCR1B |= (1 << CS11);	//8 frequency_division
+	TIMSK |= (1 << OCIE1A);	//start compare_interrupt_A
 }
 
 
 
 
-/******ÊıÂë¹ÜÏÔÊ¾º¯Êı ******/
+/******LED show ******/
 void display(char num,char pos)
 { 	SPCR = (1<<SPE) | (1<<MSTR) | (1<<SPR1) | (1<<SPR0);
-	PORTB &= 0x0F; 		//¹ØÎ»Ñ¡
+	PORTB &= 0x0F; 		//bit_select off
 	PORTB &=~(1<<0);
 	SPDR=num;
-	while(0==(SPSR&0X80)); 	//µÈ´ı SPIFÖĞ¶Ï½áÊøÖÃÎ»
+	while(0==(SPSR&0X80)); 	//wait SPIF interrupt_end_bit
 	PORTB|=(1<<0);
 	PORTB |= 1<<(7-pos);
 }
@@ -53,21 +53,21 @@ void display(char num,char pos)
 
 
 
-/********ÊıÂë¹Ü¿ØÖÆIO³õÊ¼»¯*******/
+/********LED IO init*******/
 void io_init(void)
 
 {
-	PORTC = 0x00;   //µÆ
-	DDRC  = 0xFF;	//µÆ
+	PORTC = 0x00;   //led
+	DDRC  = 0xFF;	//led
 	
 	
-	DDRD = 0X00;	//°ËÎ»¶ÀÁ¢°´¼ü
-	PORTD = 0XFF;	//PD¿Ú8¸ö°´¼ü¶Ë¿ÚÊäÈë£¬ÉÏÀ­
+	DDRD = 0X00;	//8_button
+	PORTD = 0XFF;	//PD_pin 8_button input
 	
 	DDRE=0xFF;
-	PORTE&=~(1<<1); //74HC595Ê¹ÄÜ
+	PORTE&=~(1<<1); //74HC595 init
 	
-	PORTB = 0xFF;	//PB4\5\6\7¿ØÖÆÊıÂë¹ÜÎ»Âë
+	PORTB = 0xFF;	//PB4\5\6\7_control
 	DDRB |= 0xFF;   //(1<<PB7) | (1<<PB6) | (1<<PB5) | (1<<PB4);
 }
 	
@@ -77,39 +77,39 @@ void io_init(void)
 
 
 
-//É¨Ãè¼üÅÌ£¬»ñµÃ¼üÂë
+//scan keyboard, get button_value
 void key_read(void)
 {
-	unsigned char i,j; 	 	 	 	 	 	//¼üÂë¼ÇÂ¼
+	unsigned char i,j; 	 	 	 	 	 	//button_value
 	unsigned char key_num;
-	i=PIND; 	 	 	 					//°´¼ü±íÊ¾µÄÊı×Ö ²¢¼ÇÂ¼
-	delay_ms(20);  	 	 					//È¥°´¼ü²ü¶¶
-	j = PIND; 								//j=³ı¶¶ºóµÄ°´¼üÇé¿ö
-	if(i == j) 	 	 	 	//¶ş´Î¶Ô±ÈÈ·¶¨°´¼ü²Ù×÷,ÇÒÓĞ°´¼ü°´ÏÂ
+	i=PIND; 	 	 	 					
+	delay_ms(20);  	 	 					
+	j = PIND; 								
+	if(i == j) 	 	 	 	
 	{
-		switch (i) 							 //½«°´¼üÂë×ª»»³É¼üÖµ
+		switch (i) 							 
 		{
-			case  0x7F: 	save=(++save)%2;      break;    //8  µÆÊ±¼äµ÷ÕûÍê³ÉºóµÄ´æµµ Êı¾İĞ´ÈëEEPROM 
+			case  0x7F: 	save=(++save)%2;      break;    //8  led time_set_finish, data write in EEPROM 
 			case  0xBF:   CLOCK=(++CLOCK)%3;
 			STOP_music=0;  		break;    //7  
-			case  0xDF:  sos=(++sos)%3; 	break;	  	  //6  ½ô¼±Ä£Ê½ 0½ûÖ¹Í¨ĞĞ    1ÄÏ±±Í¨ĞĞ      2¶«Î÷Í¨ĞĞ 
+			case  0xDF:  sos=(++sos)%3; 	break;	  	  //6->emergency mode	0->forbid    1->allow North_South    2->allow East_West 
 		
 			
 								 
-			case  0xEF: 	x=(++x)%3;		break;	  	  //5  Ä£Ê½ÇĞ»» 0ÎªÆÕÍ¨Ä£Ê½  1ÎªÒ¹¼äÄ£Ê½    2Îª½ô¼±Ä£Ê½ 
+			case  0xEF: 	x=(++x)%3;		break;	  	  //5->select mode    0->general mode    1->night mode    2->emergency mode 
 			
 			
 			
-			case  0xF7: 	dx=(++dx)%5;	break;	   	  //4  Ê±¼äµ÷Õû,0¶«Î÷ºìµÆ 1¶«Î÷ÂÌµÆ 2¶«Î÷»ÆµÆ   3Ğ¦Á³È·ÈÏÉèÖÃ
-			case  0xFB:   nb=(++nb)%5;      break;   	//3  Ê±¼äµ÷Õû,0ÄÏ±±ºìµÆ 1ÄÏ±±ÂÌµÆ 2ÄÏ±±»ÆµÆ    3Ğ¦Á³È·ÈÏÉèÖÃ
+			case  0xF7: 	dx=(++dx)%5;	break;	   	  //4  set_East_West_time       0->red        1->green       2->yellow   3->smile_success
+			case  0xFB:   nb=(++nb)%5;      break;   	  //3  set_North_South_time     0->red        1->green       2->yellow   3->smile_success
 		
 		
 			case  0xFE: 								//1
-			if(nb==0) a1--;       	//ÄÏ±±µÄºì»ÆÂÌµÆ  µÚÒ»¼ü¶ÔÓ¦¼õÒ»      
+			if(nb==0) a1--;       	//set_North_South_led  minus      
 			if(nb==1) b1--;
 			if(nb==2) c1--;
 			
-			if(dx==0) a2--;       	//¶«Î÷µÄºì»ÆÂÌµÆ  µÚÒ»¼ü¶ÔÓ¦¼õÒ»      
+			if(dx==0) a2--;       	//set_East_West_led    minus     
 			if(dx==1) b2--;
 			if(dx==2) c2--;
 			
@@ -119,12 +119,12 @@ void key_read(void)
 			
 			
 			case  0xFD: 			//2 
-			if(nb==0) a1++;		  //ÄÏ±±µÄºì»ÆÂÌµÆ  µÚ¶ş¼ü¶ÔÓ¦¼ÓÒ»
+			if(nb==0) a1++;		  //set_North_South_led  plus
 			if(nb==1) b1++;
 			if(nb==2) c1++;
 		
 		
-			if(dx==0) a2++;		  //¶«Î÷µÄºì»ÆÂÌµÆ  µÚ¶ş¼ü¶ÔÓ¦¼ÓÒ»
+			if(dx==0) a2++;		  //set_East_West_led    plus
 			if(dx==1) b2++;
 			if(dx==2) c2++;
 			break;
@@ -134,35 +134,35 @@ void key_read(void)
 		
 			default:      break;
 		}
-			while(PIND!=0xFF)  ; 				//µÈ´ı°´¼üËÉ¿ª
+			while(PIND!=0xFF)  ; 				//wait button_release
 	}
 }
 
 
 
-/******ÖĞ¶Ï·şÎñ³ÌĞòµÄ¹¦ÄÜ******/
+/******Interrupt******/
 ISR(TIMER1_COMPA_vect)
 
 {
-		static unsigned char j=0,c=0; //ÏÔÊ¾Ë¢ĞÂ±êÖ¾
+		static unsigned char j=0,c=0; //update_show
 	j++;c++;
-	k=(++k)%4; 				     	//k ÊµÏÖÂÖÁ÷Ë¢ĞÂÊıÂë¹Ü
+	k=(++k)%4; 				     	//k update_led
 
 
     
 
 
-	if(j>99)  {shanshuo ^= 1;j=0;}  //Ğ¡ÊıµãÉÁË¸ÖÜÆÚÉèÖÃ   1s=0.05*100*2
+	if(j>99)  {shanshuo ^= 1;j=0;}  //point twinkle_cycle_set   1s=0.05*100*2
 	
 	
 	
 	
 	
-	/*************½»Í¨µÆÊ±¼äĞ´²Ù×÷**************/
+	/*************traffic_light time write**************/
 	if(c>199)
 	{
 		c=0;
-		if(save==1)      //½«½»Í¨µÆÊ±¼äÊı¾İĞ´ÈëEEPROM
+		if(save==1)      //write traffic_light data in EEPROM
 		{
 			
 			
@@ -180,7 +180,7 @@ ISR(TIMER1_COMPA_vect)
 	
 	
 	
-		/*******Ê±¼äµ÷Õû·¶Î§¼°Êı×Ö±ä»»*******/
+		/*******time_set & Numer_update*******/
 	if(ms10>99)   
 	{
 	    ms10=0;
@@ -194,7 +194,7 @@ ISR(TIMER1_COMPA_vect)
 	
 	    if(nbred<0)     
 		{
-		    x1=nbgreen;nbgreen--;//ÄÏ±±ºìÂÌ»Æ±ä»» 
+		    x1=nbgreen;nbgreen--;//North_South red->green->yellow 
 		    PORTC = PORTC + 0x08;
 		    
      	    if(nbgreen<0)      
@@ -210,7 +210,7 @@ ISR(TIMER1_COMPA_vect)
 	 
 	    if(dxgreen<0)      
 		{
-		    x2=dxyellow;dxyellow--;//¶«Î÷ÂÌ»Æºì±ä»» 
+		    x2=dxyellow;dxyellow--;//East_West red->green->yellow
 		    PORTC = PORTC + 0x02;
 		    
 	        if(dxyellow<0)      
@@ -235,8 +235,8 @@ ISR(TIMER1_COMPA_vect)
 	
 	
 	
-		/******Ê±¼äµ÷ÕûÏÔÊ¾*******/
-	if(nb==0)     //ÄÏ±±ºìµÆµ÷Õû
+		/******time_set show*******/
+	if(nb==0)     //set North_South red
 	{
         
 
@@ -253,7 +253,7 @@ ISR(TIMER1_COMPA_vect)
 		display(ledbuf[k],k);
 	}
 
-	if(nb==1)   //ÄÏ±±ÂÌµÆµ÷Õû
+	if(nb==1)   //set North_South green
 	{
 
 	    dx=-1;x=-1;
@@ -270,7 +270,7 @@ ISR(TIMER1_COMPA_vect)
 		
 	}
 
-	if(nb==2)		//ÄÏ±±»ÆµÆµ÷Õû
+	if(nb==2)		//set North_South yellow
 	{
 	    dx=-1;x=-1;
 		PORTC = 0x20;
@@ -285,7 +285,7 @@ ISR(TIMER1_COMPA_vect)
 		display(ledbuf[k],k);
 	}
 	
-	if(nb==3)		//ÉèÖÃÈ·ÈÏ 
+	if(nb==3)		//success set 
 	{
 	    dx=-1;x=-1;
 		PORTC = 0x00;
@@ -303,7 +303,7 @@ ISR(TIMER1_COMPA_vect)
 	
 	
 	
-	if(dx==0)     //¶«Î÷ºìµÆµ÷Õû
+	if(dx==0)     //set East_West red
 	{
 	    nb=-1;x=-1;
 		PORTC = 0x01;
@@ -318,7 +318,7 @@ ISR(TIMER1_COMPA_vect)
 		display(ledbuf[k],k);
 	}
 
-	if(dx==1)   //¶«Î÷ÂÌµÆµ÷Õû
+	if(dx==1)   //set East_West green
 	{
 	    nb=-1;x=-1;
 		PORTC = 0x02;
@@ -334,7 +334,7 @@ ISR(TIMER1_COMPA_vect)
 		
 	}
 
-	if(dx==2)		//¶«Î÷»ÆµÆµ÷Õû
+	if(dx==2)		//set East_West yellow
 	{
 	    nb=-1;x=-1;
 		PORTC = 0x04;
@@ -349,7 +349,7 @@ ISR(TIMER1_COMPA_vect)
 		display(ledbuf[k],k);
 	}
 
-	if(dx==3)		//ÉèÖÃÈ·ÈÏ 
+	if(dx==3)		//success set 
 	{
 	    nb=-1;x=-1;
 		PORTC = 0x00;
@@ -378,7 +378,7 @@ ISR(TIMER1_COMPA_vect)
 	
 	
 	
-	display(ledbuf[k],k);      //ÊıÂë¹ÜÏÔÊ¾º¯Êı
+	display(ledbuf[k],k);      //led_show function
 }
 
 
@@ -386,16 +386,16 @@ ISR(TIMER1_COMPA_vect)
 
 
 
-/************AD²âµçÑ¹ÖµÊµÏÖ¹â¿Ø¿ªÆôÒ¹¼äÄ£Ê½************/
+/************AD_Test_voltage, light_control->night_mode************/
 unsigned int get_ad(void) 
 { 
    long int i;  
-   ADMUX = (1 << REFS0);  //²Î¿¼µçÑ¹AVCC
-   ADCSRA = (1<< ADEN) | (1 << ADSC) | (1 << ADPS1) | (1 << ADPS0); //ADCÊ¹ÄÜ£¬¿ªÊ¼×ª»»£¬8·ÖÆµ 
-   while(!(ADCSRA & (1 << ADIF))); //µÈ´ı×ª»»½áÊøÖĞ¶Ï±êÖ¾ÖÃÎ» 
-   i = ADC; //È¡×ª»»½á¹û
-   ADCSRA &= ~(1 << ADIF); //Çå³ıÖĞ¶Ï±êÖ¾ 
-   ADCSRA &= ~(1 << ADEN); //¹Ø±ÕADC 
+   ADMUX = (1 << REFS0);  //test_voltage, AVCC
+   ADCSRA = (1<< ADEN) | (1 << ADSC) | (1 << ADPS1) | (1 << ADPS0); //ADC_init,  8 frequency_division
+   while(!(ADCSRA & (1 << ADIF))); //wait interrupt_sign 
+   i = ADC; //get value
+   ADCSRA &= ~(1 << ADIF); //clean  interrupt_sign
+   ADCSRA &= ~(1 << ADEN); //ADC  off 
    return i; 
 }
  
@@ -408,35 +408,35 @@ unsigned int get_ad(void)
 	
 	
 	
-/************EEPROMĞ´²Ù×÷************/
+/************EEPROM write************/
 
 void EEPROM_write(unsigned int Address,unsigned char Data)
 {
-	while(EECR&(1<<EEWE));			//µÈ´ıÉÏÒ»´ÎĞ´²Ù×÷½áÊø
-	EEAR = Address;  				//µØÖ·
-	EEDR = Data;  					//Êı¾İ
-	EECR |= (1<<EEMWE);  			//ÖÃÎ»EEMWE
-	EECR |= (1<<EEWE);				//ÖÃÎ»EEWEÆô¶¯Ğ´²Ù×÷
+	while(EECR&(1<<EEWE));			//wait ending
+	EEAR = Address;  				//address
+	EEDR = Data;  					//data
+	EECR |= (1<<EEMWE);  			//EEMWE
+	EECR |= (1<<EEWE);				//EEWE write
 }
 
 
 
 
 
-/************EEPROM¶Á²Ù×÷************/
+/************EEPROM read************/
 int EEPROM_read(unsigned int Address)
 {
-	while(EECR&(1<<EEWE));			//µÈ´ıÉÏÒ»´ÎĞ´²Ù×÷½áÊø
-	EEAR = Address;  				//µØÖ·
-	EECR |= (1<<EERE); 				//ÖÃÎ»EEMWE
-	return EEDR;  					//·µ»Ø¶ÁÈ¡½á¹û
+	while(EECR&(1<<EEWE));			//wait ending
+	EEAR = Address;  				//address
+	EECR |= (1<<EERE); 				//EEMWE
+	return EEDR;  					//return read_data
 }
 
 
 
 
 
-//Ö÷ º¯ Êı 
+//main 
 int main()
 {
 	ledbuf[3] = 0x00;
@@ -468,7 +468,7 @@ int main()
 	
 	
 	
-    	/********¶ÁÉèÖÃ½»Í¨µÆÊ±¼ä*********/
+    	/********read traffic_light_time*********/
 
 	if(save==0)
 	{
@@ -494,19 +494,19 @@ int main()
 	while (1)
 	{
         
-		key_read(); 	 	//¼üÅÌÉ¨Ãè
-		delay_ms(50); 		//¼üÅÌÉ¨Ãè¼ä¸ô
+		key_read(); 	 	//scan keyboard
+		delay_ms(50); 		
 		
 		
         i = get_ad()/204.8;
 
 
 		
-		if(x==0)//ÆÕÍ¨Ä£Ê½ 
+		if(x==0)//general_mode 
 		{
-			T=-1;sos=-1;			//Ïû³ıÆäËû¹¦ÄÜÊ±¼äÏÔÊ¾¸ÉÈÅ
+			T=-1;sos=-1;			
 	
-	      if(i>2)                //¹â¿Ø´¦¼ì²éµÄµçÑ¹Öµ×÷ÎªÊÇ·ñÎªÒ¹¼äÄ£Ê½±ê×¼
+	      if(i>2)                //AD_Test_voltage, light_control
 		  {
 		    ms10++;
 			ledbuf[3] = disp[x2%10];
@@ -535,10 +535,10 @@ int main()
 		}
 		
 		
-		if(x==1)//Ò¹¼äÄ£Ê½ 
+		if(x==1)//night_mode
 		{
 
-            T=-1;sos=-1;			//Ïû³ıÆäËû¹¦ÄÜÊ±¼äÏÔÊ¾¸ÉÈÅ
+            T=-1;sos=-1;			
             ledbuf[3] = 0x00;
 	        ledbuf[2] = 0x00;
         	ledbuf[1] = 0x00;
@@ -553,9 +553,9 @@ int main()
 		
 		
 		
-		if(x==2)//½ô¼±Ä£Ê½ 
+		if(x==2)//emergency_mode 
 		{
-			nb=-1;dx=-1;T=-1;;		//Ïû³ıÆäËû¹¦ÄÜÊ±¼äÏÔÊ¾¸ÉÈÅ
+			nb=-1;dx=-1;T=-1;;		
 			ledbuf[3] = 0x00;
 	        ledbuf[2] = 0x00;
         	ledbuf[1] = 0x00;
@@ -579,7 +579,7 @@ int main()
 	    
 			
 	
-		delay_ms(10); //¼üÅÌÉ¨Ãè¼ä¸ô
+		delay_ms(10); 
 	}
 	
 	
